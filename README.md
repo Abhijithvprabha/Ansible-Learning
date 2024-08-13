@@ -19,3 +19,5 @@ As soon as you run the ansible-playbook command, Ansible
 connects to the remote servers and does its thing; this lowers the risk of
 random servers potentially breaking whenever their scheduled tasks fail to
 change things successfully.
+
+![alt text](image.png)
