@@ -1,0 +1,17 @@
+---
+- name: "Install webserver httpd"
+  hosts: Prod
+  become: true
+  tasks:
+
+    - name: "installing the apache/httpd package"
+      yum:
+        name: httpd
+        state: present
+
+    - name: "Start the service on Restart"
+      service:
+        name: httpd
+        state: started
+    
+    

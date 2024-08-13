@@ -21,3 +21,7 @@ random servers potentially breaking whenever their scheduled tasks fail to
 change things successfully.
 
 ![alt text](image.png)
+
+ Playbooks: A Beginning
+
+ Playbook is the term that Ansible uses for a configuration management script.
