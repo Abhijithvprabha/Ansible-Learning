@@ -11,7 +11,7 @@
     
     - name: Update the webpage 
       copy:
-        src: /home/master/index.html
+        src: /home/master/index.html  # this file is located on the Controller node
         dest: /var/www/html
         owner: root
         group: root
