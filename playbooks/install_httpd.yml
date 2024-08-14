@@ -8,6 +8,14 @@
       yum:
         name: httpd
         state: present
+    
+    - name: Update the webpage 
+      copy:
+        src: /home/master/index.html
+        dest: /var/www/html
+        owner: root
+        group: root
+        mode: 0644
 
     - name: "Start the service on Restart"
       service:
