@@ -1,0 +1,12 @@
+---
+- name: Account creation
+  become: true
+  hosts: Prod
+
+  tasks:
+    - name: Create a user named 
+      user:
+        name: messi
+        uid: 4042
+        state: present
+        
