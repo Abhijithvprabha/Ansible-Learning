@@ -42,3 +42,15 @@
       service:
         name: firewalld
         state: reloaded
+
+- name: Test intranet web connectivity
+  hosts: localhost
+  become: false
+
+  tasks:
+    - name: connet to the intranet webserver client 1
+      uri:
+        url: http://192.168.4.133/
+        return_content: yes
+        status_code: 200
+
