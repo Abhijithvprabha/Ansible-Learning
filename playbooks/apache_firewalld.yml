@@ -1,0 +1,44 @@
+---
+- name: "installing apache and firewalld service configured, tets connectivity"
+  hosts: Prod
+  become: true
+
+
+  tasks:
+    - name: installing httpd adn firewalld package
+      yum:
+        name:
+          - httpd
+          - firewalld
+        state: present
+
+
+    - name: creating index.htm
+      copy:
+        content: " Welcome to new automation server rhce course"
+        dest: /var/www/html/index.html
+
+    - name: " firewalld service started and enabled"
+      service:
+        name: firewalld
+        state: started
+        enabled: true
+
+    - name: Allow HTTP service throguh firewalld
+      firewalld:
+        service: http
+        permanent: true
+        state: enabled
+        immediate: yes
+
+    - name: "enable and start httpd service"
+      service:
+        name: httpd
+        state: started
+        enabled: true
+
+
+    - name : reload firewalld service
+      service:
+        name: firewalld
+        state: reloaded
