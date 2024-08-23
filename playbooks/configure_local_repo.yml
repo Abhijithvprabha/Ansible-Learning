@@ -1,0 +1,22 @@
+- name: configuring local yum repo on all machines
+  hosts: all
+  become: yes
+
+  tasks:
+
+      - name: configure Appstream
+        yum_repository:
+              name: "Applications"
+              description: "apps"
+              baseurl: file:///run/media/master/RHEL-9-4-0-BaseOS-x86_64/AppStream
+              enabled: yes
+              gpgcheck: 0
+
+
+      - name: Configure Baseos repo
+        yum_repository:
+          name: "BaseOS operating System"
+          description: "Baseos"
+          baseurl: file:///run/media/master/RHEL-9-4-0-BaseOS-x86_64/BaseOS
+          enabled: yes
+          gpgcheck: 0
