@@ -1,0 +1,9 @@
+---
+- name: "timesync roles task"
+  hosts: all
+  vars:
+    timesync_ntp_servers:
+        - hostname: 206.108.0.131
+          iburst: yes
+  roles:
+    - rhel-system-roles.timesync
