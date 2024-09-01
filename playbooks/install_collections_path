@@ -1,0 +1,25 @@
+The ansible-galaxy install command can be used to:
+
+    Install a role
+    Install a collection
+
+In this example, the ansible.posix collection is installed. Notice that by default, the collection is installed to the users collections directory (/home/john.doe/.ansible/collections).
+
+$ ansible-galaxy collection install ansible.posix
+Starting galaxy collection install process
+Process install dependency map
+Starting collection install process
+Installing 'ansible.posix:1.2.0' to '/home/john.doe/.ansible/collections/ansible_collections/ansible/posix'
+Downloading https://galaxy.ansible.com/download/ansible-posix-1.2.0.tar.gz to /home/john.doe/.ansible/tmp/ansible-local-15258q2alfwvq/tmpdesamf4k
+ansible.posix (1.2.0) was installed successfully
+
+
+The -p or --collections-path option can be used to specify the installation directory. In this example, the ansible.posix collection will be installed to /usr/local/ansible/collections/ansible_collections/ansible/posix.
+
+ansible-galaxy collection install ansible.posix --collections-path /usr/local/ansible/collections
+
+ 
+
+In this scenario, it probably makes the most sense to append /usr/local/ansible/collections/ansible_collections/ansible/posix to the library directive ansible.cfg.
+
+library = /usr/local/ansible/collections/ansible_collections/ansible/posix
