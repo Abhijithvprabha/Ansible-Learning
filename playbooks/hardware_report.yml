@@ -1,0 +1,16 @@
+---
+- name: " Generate a hardware report"
+  hosts: all
+  tasks:
+
+    - name: "Downloading the file from the link"
+      ansible.builtin.get_url:
+          url: http://server.network.example.com/materials/hwreport.empty
+          dest: /root/hwreport.txt
+
+    - name: "Generating the file in all managed nodes"
+      ansible.builtin.template:
+          src: /home/master/ansible/hwreport.yml
+          dest: /root/hwreport.txt
+
+          
