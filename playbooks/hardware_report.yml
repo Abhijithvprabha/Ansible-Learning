@@ -5,7 +5,7 @@
 
     - name: "Downloading the file from the link"
       ansible.builtin.get_url:
-          url: http://server.network.example.com/materials/hwreport.empty
+          url: hlink
           dest: /root/hwreport.txt
 
     - name: "Generating the file in all managed nodes"
@@ -13,4 +13,3 @@
           src: /home/master/ansible/hwreport.yml
           dest: /root/hwreport.txt
 
-          
