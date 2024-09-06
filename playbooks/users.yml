@@ -1,0 +1,48 @@
+---
+- name: Creating the users in the dev and test group
+  hosts: dev test
+  vars_files:
+      - /home/master/ansible/locker.yml
+  
+
+  tasks:
+
+    - name: "Create the group devops"
+      ansible.builtin.group:
+        name: devops
+        state: present
+
+    - name: " Creating the user developer"
+      ansible.builtin.user:
+        name: devadm
+        password: "{{ pw_developer | password_hash('sha512')}}"  
+        password_expire_max: 30
+        groups: devops
+
+
+- name: Creating a user on prod node 
+  hosts: prod
+  vars_files:
+    - /home/master/ansible/locker.yml
+
+
+  tasks:
+
+    - name: "Create a group named opsmgr"
+      ansible.builtin.group:
+        name: opsmgr
+        state: present
+
+
+    - name: Creating the user manager
+      ansible.builtin.user:
+        name: devadm
+        password: "{{pw_manager | password_hash('sha512')}}"
+        password_expire_max: 30
+        groups: opsmgr
+
+
+
+
+
+
