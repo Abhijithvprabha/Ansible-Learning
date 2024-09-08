@@ -1,0 +1,26 @@
+--- 
+- name: "Install packages"
+  hosts:
+    - dev
+    - test
+    - prod
+  tasks: 
+    - name: "Installing mariadb and php"
+      ansible.builtin.yum:
+          name: 
+            - php
+            - mariadb
+          state: present
+    
+- name: " Installing pacakges in dev group"
+  hosts: dev
+  tasks:
+    - name: "install rpm"
+      ansible.builtin.dnf:
+        name: "@RPM Development-tools"
+        state: present
+    
+    - name: " Update all the packages on dev host group to latest "
+      ansible.builtin.dnf:
+        name: "*"
+        state: latest
