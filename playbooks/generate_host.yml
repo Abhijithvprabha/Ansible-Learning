@@ -1,0 +1,20 @@
+---
+- name: "Generate the hostfile"
+  hosts: all
+  tasks:
+    - name: "copying the file"
+      ansible.builtin.template:
+        src: /home/master/ansible/hosts.j2
+        dest: /etc/myhosts
+        state: present
+      when: inventory_hostname in groups['dev']
+
+    - name: "editing the file"
+      ansible.builtin.lineinfile:
+        path: /etc/myhosts
+        line: ' {{hostvars[item].ansible_default_ipv4.address}} {{hostvars[item].ansible_fqdn}} {{ item }}'
+        state: present
+      with_items: '{{ groups.all }}'
+      when: inventory_hostname in groups['dev']
+
+      

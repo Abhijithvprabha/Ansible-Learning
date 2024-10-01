@@ -15,11 +15,10 @@
 
 - name: Installing pacakge on the dev grp           
   hosts: dev
-
   tasks: 
     - name: " Installing the RPM development packages"
       ansible.builtin.dnf:
-          name: '@RPM development Tools'
+          name: '@RPM Development Tools'
           state: present
 
     - name: Updating the packages to the latest version"

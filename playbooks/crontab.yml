@@ -1,0 +1,13 @@
+---
+- name: "Configrure cornjob"
+  hosts: 192.168.4.133
+  tasks:
+    - name: "EX294 in progress"
+      ansible.builtin.cron:
+        name: "Ex294 in progress"
+        user: natasha
+        minute: "*/2"
+        job: "/usr/bin/logger -p 'EX294 in progress'"
+        state: present
+
+
