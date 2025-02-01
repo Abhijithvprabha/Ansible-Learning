@@ -1,0 +1,6 @@
+---
+- name: "Node-exporter"
+  hosts: all
+  roles:
+    - node-exporter
+

@@ -1,0 +1,12 @@
+---
+# defaults file for node-exporter
+node_exporter_version: "1.8.2"
+node_exporter_bin: /usr/local/bin/node_exporter
+node_exporter_user: "node_exporter"
+node_exporter_group: "{{ node_exporter_user}}"
+node_exporter_dir_conf: "/etc/node_exporter"
+# prometheus_config_template: "/ansible/roles/node-exporter/templates/prometheus.yml.j2"
+prometheus_config_path: "/etc/prometheus/prometheus.yml"
+prometheus_server: "watchtower"
+
+

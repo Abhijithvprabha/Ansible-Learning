@@ -1,0 +1,8 @@
+[nodes]
+node-a
+node-b
+node-c
+node-d
+
+[prometheus_server]
+watchtower
